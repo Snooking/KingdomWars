@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kingdomwars.MainWindowController">
+    <BorderPane prefWidth="600.0">
+        
+        <left>
+            <BorderPane prefWidth="300.0">
+        
+                <top>           
+                    <Label fx:id="firstKingdomStats" text="First Kingdom"/>
+                </top>
+
+                <left>
+                    <VBox>
+                        <Label></Label>
+                        <BorderPane>
+                            <left>
+                                <Label fx:id="firstKingdomCoalLabel" text="Coal: "/>
+                            </left>
+                            
+                            <right>
+                                <Label fx:id="firstKingdomCoalValue"/>
+                            </right>
+                        </BorderPane>
+                        
+                        <BorderPane>
+                            <left>
+                                <Label fx:id="firstKingdomGoldLabel" text="Gold: "/>
+                            </left>
+                            
+                            <right>
+                                <Label fx:id="firstKingdomGoldValue"/>
+                            </right>
+                        </BorderPane>
+                        
+                        <BorderPane>
+                            <left>
+                                <Label fx:id="firstKingdomOreLabel" text="Ore: "/>
+                            </left>
+                            
+                            <right>
+                                <Label fx:id="firstKingdomOreValue"/>
+                            </right>
+                        </BorderPane>
+                        
+                        <Label></Label>
+                        
+                        <BorderPane>
+                            <left>
+                                <Label fx:id="firstKingdomGrainLabel" text="Grain: "/>
+                            </left>
+                            
+                            <right>
+                                <Label fx:id="firstKingdomGrainValue"/>
+                            </right>
+                        </BorderPane>
+                        
+                        <BorderPane>
+                            <left>
+                                <Label fx:id="firstKingdomMeatLabel" text="Meat: "/>
+                            </left>
+                            
+                            <right>
+                                <Label fx:id="firstKingdomMeatValue"/>
+                            </right>
+                        </BorderPane>
+                        
+                        <Label></Label>
+                        
+                        <BorderPane>
+                            <left>
+                                <Label fx:id="firstKingdomSwordsLabel" text="Swords: "/>
+                            </left>
+                            
+                            <right>
+                                <Label fx:id="firstKingdomSwordsValue"/>
+                            </right>
+                        </BorderPane>
+                        
+                        <BorderPane>
+                            <left>
+                                <Label fx:id="firstKingdomJewelryLabel" text="Jewelry: "/>
+                            </left>
+                            
+                            <right>
+                                <Label fx:id="firstKingdomJewelryValue"/>
+                            </right>
+                        </BorderPane>
+                        
+                        <Label></Label>
+                        
+                        <BorderPane>
+                            <left>
+                                <Label fx:id="firstKingdomKnightsLabel" text="Knights: "/>
+                            </left>
+                            
+                            <right>
+                                <Label fx:id="firstKingdomKnightsValue"/>
+                            </right>
+                        </BorderPane>
+                        
+                    </VBox>
+                </left>
+
+            </BorderPane>
+        </left>
+        
+
+    </BorderPane>
+</AnchorPane>
