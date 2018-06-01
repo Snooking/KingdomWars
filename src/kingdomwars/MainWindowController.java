@@ -5,9 +5,8 @@
  */
 package kingdomwars;
 
-import Characters.Kingdom;
-import Characters.Material;
-import Characters.Miner;
+import GameManagement.Kingdom;
+import Characters.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -25,6 +24,8 @@ public class MainWindowController implements Initializable {
      * Initializes the controller class.
      */
     
+    Kingdom firstKingdom;
+    
     @FXML Label firstKingdomCoalValue;
     @FXML Label firstKingdomGoldValue;
     @FXML Label firstKingdomOreValue;
@@ -39,17 +40,18 @@ public class MainWindowController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        firstKingdomCoalValue.setText("50");
-        firstKingdomGoldValue.setText("60");
-        firstKingdomOreValue.setText("70");
+        firstKingdom = new Kingdom();
+        firstKingdomCoalValue.setText(Integer.toString(firstKingdom.getCoal()));
+        firstKingdomGoldValue.setText(Integer.toString(firstKingdom.getGold()));
+        firstKingdomOreValue.setText(Integer.toString(firstKingdom.getOre()));
         
-        firstKingdomGrainValue.setText("80");
-        firstKingdomMeatValue.setText("90");
+        firstKingdomGrainValue.setText(Integer.toString(firstKingdom.getGrain()));
+        firstKingdomMeatValue.setText(Integer.toString(firstKingdom.getMeat()));
         
-        firstKingdomSwordsValue.setText("100");
-        firstKingdomJewelryValue.setText("110");
+        firstKingdomSwordsValue.setText(Integer.toString(firstKingdom.getSwords()));
+        firstKingdomJewelryValue.setText(Integer.toString(firstKingdom.getJewelry()));
         
-        firstKingdomKnightsValue.setText("120");
+        firstKingdomKnightsValue.setText(Integer.toString(firstKingdom.getKnights()));
     }    
     
 }
