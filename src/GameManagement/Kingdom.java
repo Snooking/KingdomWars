@@ -11,6 +11,7 @@ import Characters.*;
  *
  * @author Snooking
  */
+
 public class Kingdom {
     private Farmer farmer;
     private Miner miner;
@@ -48,6 +49,10 @@ public class Kingdom {
         return meat;
     }
 
+    public void setMeat(int _meat) {
+        meat = _meat;
+    }
+    
     public int getGrain() {
         return grain;
     }
@@ -78,11 +83,13 @@ public class Kingdom {
         resetValues();
     }
     
-    public Kingdom() {
-        farmer = new Farmer(10, 10, Material.Meat);
-        miner = new Miner(10, 10, Material.Coal);
-        jeweller = new Jeweller(10, 10, Material.Jewelry);
-        armorer = new Armorer(10, 10, Material.Swords);
+    public Kingdom() {        
+        miner = new Miner(10, 10, Material.Coal, this);
+        jeweller = new Jeweller(10, 10, Material.Jewelry, this);
+        armorer = new Armorer(10, 10, Material.Swords, this);
+        king = new King();
+        queen = new Queen();
+        farmer = new Farmer(10, 10, Material.Meat, miner, this);
         resetValues();
     }
     

@@ -5,6 +5,8 @@
  */
 package Characters;
 
+import GameManagement.Kingdom;
+
 /**
  *
  * @author Snooking
@@ -13,15 +15,12 @@ public abstract class Worker extends Thread{
     protected int workingTime;
     protected int amountOfMaterial;
     protected Material material;
+    protected Kingdom kingdom;
     
-    Worker(int time, int amount, Material _material) {
+    Worker(int time, int amount, Material _material, Kingdom _kingdom) {
         workingTime = time;
         amountOfMaterial = amount;
         material = _material;
-    }
-    
-    @Override
-    public void run() {
-        
+        kingdom = _kingdom;
     }
 }

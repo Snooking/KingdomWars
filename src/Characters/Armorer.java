@@ -5,14 +5,15 @@
  */
 package Characters;
 
+import GameManagement.Kingdom;
+
 /**
  *
  * @author Snooking
  */
 public class Armorer extends Worker {
-    
-    public Armorer(int time, int amount, Material _material) {
-        super(time, amount, _material);
+
+    public Armorer(int time, int amount, Material _material, Kingdom _kingdom) {
+        super(time, amount, _material, _kingdom);
     }
-    
 }
