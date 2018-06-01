@@ -37,10 +37,12 @@ public class MainWindowController implements Initializable {
     @FXML Label firstKingdomJewelryValue;
     
     @FXML Label firstKingdomKnightsValue;
+    @FXML Label firstKingdomMoraleValue;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         firstKingdom = new Kingdom();
+        
         firstKingdomCoalValue.setText(Integer.toString(firstKingdom.getCoal()));
         firstKingdomGoldValue.setText(Integer.toString(firstKingdom.getGold()));
         firstKingdomOreValue.setText(Integer.toString(firstKingdom.getOre()));
@@ -52,6 +54,7 @@ public class MainWindowController implements Initializable {
         firstKingdomJewelryValue.setText(Integer.toString(firstKingdom.getJewelry()));
         
         firstKingdomKnightsValue.setText(Integer.toString(firstKingdom.getKnights()));
+        firstKingdomMoraleValue.setText(Integer.toString(firstKingdom.getMorale()));
     }    
     
 }

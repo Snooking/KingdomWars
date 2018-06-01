@@ -105,6 +105,16 @@
                             </right>
                         </BorderPane>
                         
+                        <BorderPane>
+                            <left>
+                                <Label fx:id="firstKingdomMoraleLabel" text="Morale: "/>
+                            </left>
+                            
+                            <right>
+                                <Label fx:id="firstKingdomMoraleValue"/>
+                            </right>
+                        </BorderPane>
+                        
                     </VBox>
                 </left>
 

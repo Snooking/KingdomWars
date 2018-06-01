@@ -5,14 +5,36 @@
  */
 package Characters;
 
+import GameManagement.*;
+
 /**
  *
  * @author Snooking
  */
 public class Farmer extends Worker {
     
-    public Farmer(int time, int amount, Material _material) {
-        super(time, amount, _material);
+    private Miner miner;
+    
+    public Farmer(int time, int amount, Material _material, Miner _miner, Kingdom _kingdom) {
+        super(time, amount, _material, _kingdom);
+        miner = _miner;
     }
     
+    @Override
+    public void run() {
+        while(!GameManager.getIsGameEnded()) {
+            synchronized(this) {
+                try {
+                    Thread.sleep(workingTime);
+                }
+                catch (InterruptedException e) {
+                }
+                
+                synchronized(this.miner){
+                    this.miner.notify();
+                    kingdom.setMeat(kingdom.getMeat() + amountOfMaterial);
+                }
+            }
+        }
+    }
 }

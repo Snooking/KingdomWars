@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Characters;
-
-import GameManagement.Kingdom;
+package GameManagement;
 
 /**
  *
  * @author Snooking
  */
-public class Jeweller extends Worker {
-
-    public Jeweller(int time, int amount, Material _material, Kingdom _kingdom) {
-        super(time, amount, _material, _kingdom);
+public class GameManager {
+    private static boolean isGameEnded;
+    
+    public static boolean getIsGameEnded() {
+        return isGameEnded;
     }
 }
