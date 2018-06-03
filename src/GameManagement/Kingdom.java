@@ -12,7 +12,7 @@ import Characters.*;
  * @author Snooking
  */
 
-public class Kingdom {
+public class Kingdom extends Thread {
     private Farmer farmer;
     private Miner miner;
     private Jeweller jeweller;
@@ -112,12 +112,12 @@ public class Kingdom {
     }
     
     public Kingdom() {        
-        miner = new Miner(2500, 10, Material.Coal, this);
         jeweller = new Jeweller(10000, 10, Material.Jewelry, this);
         armorer = new Armorer(10000, 10, Material.Swords, this);
-        king = new King();
-        queen = new Queen();
-        farmer = new Farmer(1500, 10, Material.Meat, miner, this);
+        king = new King(10000, 1, Material.Coal, this);
+        queen = new Queen(10000, 1, Material.Coal, this);
+        miner = new Miner(2500, 10, Material.Coal, this);
+        farmer = new Farmer(1500, 10, Material.Meat, this);
         resetValues();
     }
     
@@ -135,5 +135,43 @@ public class Kingdom {
     
     public void startSimulation() {
         farmer.start();
+        miner.start();
+        armorer.start();
+        jeweller.start();
+        notifyWorker(farmer);        
+    }
+    
+    private void notifyWorker(Worker workerToNotify) {
+        synchronized (workerToNotify) {
+            workerToNotify.notify();
+            workerToNotify.setIsNotified(true);
+        }
+    }
+    
+    private void simulate() {
+        if (meat>5&&!miner.getIsNotified()) {
+            notifyWorker(miner);
+            meat -= 5;
+        }
+        if (grain > 10 && coal > 10 && ore > 10 && !armorer.getIsNotified()){
+            notifyWorker(armorer);
+            grain-=10;
+            coal-=10;
+            ore-=10;
+        }
+        if(grain > 5 && gold > 5 && coal > 5) {
+            notifyWorker(jeweller);
+            grain-=5;
+            coal-=5;
+            gold-=5;
+        }
+    }
+    
+    @Override
+    public void run() {
+        startSimulation();
+        while(true) {
+            simulate();
+        }
     }
 }

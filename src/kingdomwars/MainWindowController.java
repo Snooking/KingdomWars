@@ -50,9 +50,7 @@ public class MainWindowController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         firstKingdom = new Kingdom();
         
-        firstKingdom.startSimulation();
-        
-        refresher = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+        refresher = new Timeline(new KeyFrame(Duration.seconds(0.5), new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {
@@ -60,6 +58,7 @@ public class MainWindowController implements Initializable {
             }
         }));
         refresher.setCycleCount(Timeline.INDEFINITE);
+        firstKingdom.start();
         refresher.play();
         
     }    
