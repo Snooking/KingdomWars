@@ -5,10 +5,16 @@
  */
 package Characters;
 
+import GameManagement.Kingdom;
+
 /**
  *
  * @author Snooking
  */
-public class Queen {
+public class Queen extends Worker{
+    
+    public Queen(int time, int amount, Material _material, Kingdom _kingdom) {
+        super(time, amount, _material, _kingdom);
+    }
     
 }

@@ -16,11 +16,72 @@ public abstract class Worker extends Thread{
     protected int amountOfMaterial;
     protected Material material;
     protected Kingdom kingdom;
+    protected boolean isNotified;
     
-    Worker(int time, int amount, Material _material, Kingdom _kingdom) {
+    protected Worker(int time, int amount, Material _material, Kingdom _kingdom) {
         workingTime = time;
         amountOfMaterial = amount;
         material = _material;
         kingdom = _kingdom;
+        isNotified = false;
+    }
+    
+    public void changeMaterial(Material _material) {
+        material = _material;
+    }
+    
+    public void setIsNotified(boolean _isNotified) {
+        isNotified = _isNotified;
+    }
+    
+    public Boolean getIsNotified() {
+        return isNotified;
+    }
+    
+    protected void collectMaterial() {
+        switch(material) {
+            case Meat:
+                kingdom.setMeat(kingdom.getMeat() + amountOfMaterial);
+                break;
+            case Grain:
+                kingdom.setGrain(kingdom.getGrain() + amountOfMaterial);
+                break;
+            case Coal:
+                kingdom.setCoal(kingdom.getCoal() + amountOfMaterial);
+                break;
+            case Ore:
+                kingdom.setOre(kingdom.getOre() + amountOfMaterial);
+                break;
+            case Gold:
+                kingdom.setGold(kingdom.getGold() + amountOfMaterial);
+                break;
+            case Jewelry:
+                kingdom.setJewelry(kingdom.getJewelry()+ amountOfMaterial);
+                break;
+            case Swords:
+                kingdom.setSwords(kingdom.getSwords() + amountOfMaterial);
+                break;
+        }
+    }
+    
+        @Override
+        public void run() {
+        while (true) {
+            synchronized (this) {
+                try {
+                    this.wait();
+                } catch (InterruptedException e) {
+                }
+            }
+
+            try {
+
+                Thread.sleep(workingTime);
+            } catch (InterruptedException e) {
+            }
+
+            collectMaterial();
+            isNotified = false;
+        }
     }
 }
