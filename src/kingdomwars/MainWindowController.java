@@ -9,9 +9,14 @@ import GameManagement.Kingdom;
 import Characters.*;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -24,37 +29,53 @@ public class MainWindowController implements Initializable {
      * Initializes the controller class.
      */
     
-    Kingdom firstKingdom;
+    private Kingdom firstKingdom;
     
-    @FXML Label firstKingdomCoalValue;
-    @FXML Label firstKingdomGoldValue;
-    @FXML Label firstKingdomOreValue;
+    private @FXML Label firstKingdomCoalValue;
+    private @FXML Label firstKingdomGoldValue;
+    private @FXML Label firstKingdomOreValue;
     
-    @FXML Label firstKingdomGrainValue;
-    @FXML Label firstKingdomMeatValue;
+    private @FXML Label firstKingdomGrainValue;
+    private @FXML Label firstKingdomMeatValue;
     
-    @FXML Label firstKingdomSwordsValue;
-    @FXML Label firstKingdomJewelryValue;
+    private @FXML Label firstKingdomSwordsValue;
+    private @FXML Label firstKingdomJewelryValue;
     
-    @FXML Label firstKingdomKnightsValue;
-    @FXML Label firstKingdomMoraleValue;
+    private @FXML Label firstKingdomKnightsValue;
+    private @FXML Label firstKingdomMoraleValue;
+    
+    private Timeline refresher;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         firstKingdom = new Kingdom();
         
-        firstKingdomCoalValue.setText(Integer.toString(firstKingdom.getCoal()));
-        firstKingdomGoldValue.setText(Integer.toString(firstKingdom.getGold()));
-        firstKingdomOreValue.setText(Integer.toString(firstKingdom.getOre()));
+        firstKingdom.startSimulation();
         
-        firstKingdomGrainValue.setText(Integer.toString(firstKingdom.getGrain()));
-        firstKingdomMeatValue.setText(Integer.toString(firstKingdom.getMeat()));
+        refresher = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                prepareFirstKingdomUI();
+            }
+        }));
+        refresher.setCycleCount(Timeline.INDEFINITE);
+        refresher.play();
         
-        firstKingdomSwordsValue.setText(Integer.toString(firstKingdom.getSwords()));
-        firstKingdomJewelryValue.setText(Integer.toString(firstKingdom.getJewelry()));
-        
-        firstKingdomKnightsValue.setText(Integer.toString(firstKingdom.getKnights()));
-        firstKingdomMoraleValue.setText(Integer.toString(firstKingdom.getMorale()));
     }    
     
+    private void prepareFirstKingdomUI() {
+                firstKingdomGrainValue.setText(Integer.toString(firstKingdom.getGrain()));
+                firstKingdomMeatValue.setText(Integer.toString(firstKingdom.getMeat()));
+                
+                firstKingdomCoalValue.setText(Integer.toString(firstKingdom.getCoal()));
+                firstKingdomGoldValue.setText(Integer.toString(firstKingdom.getGold()));
+                firstKingdomOreValue.setText(Integer.toString(firstKingdom.getOre()));
+
+                firstKingdomSwordsValue.setText(Integer.toString(firstKingdom.getSwords()));
+                firstKingdomJewelryValue.setText(Integer.toString(firstKingdom.getJewelry()));
+
+                firstKingdomKnightsValue.setText(Integer.toString(firstKingdom.getKnights()));
+                firstKingdomMoraleValue.setText(Integer.toString(firstKingdom.getMorale()));
+    }
 }
