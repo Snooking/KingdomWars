@@ -49,8 +49,36 @@ public class Kingdom {
         return meat;
     }
 
-    public void setMeat(int _meat) {
-        meat = _meat;
+    public void setMeat(int meat) {
+        this.meat = meat;
+    }
+
+    public void setCoal(int coal) {
+        this.coal = coal;
+    }
+
+    public void setOre(int ore) {
+        this.ore = ore;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+
+    public void setGrain(int grain) {
+        this.grain = grain;
+    }
+
+    public void setSwords(int swords) {
+        this.swords = swords;
+    }
+
+    public void setJewelry(int jewelry) {
+        this.jewelry = jewelry;
+    }
+
+    public void setMorale(int morale) {
+        this.morale = morale;
     }
     
     public int getGrain() {
@@ -84,12 +112,12 @@ public class Kingdom {
     }
     
     public Kingdom() {        
-        miner = new Miner(10, 10, Material.Coal, this);
-        jeweller = new Jeweller(10, 10, Material.Jewelry, this);
-        armorer = new Armorer(10, 10, Material.Swords, this);
+        miner = new Miner(2500, 10, Material.Coal, this);
+        jeweller = new Jeweller(10000, 10, Material.Jewelry, this);
+        armorer = new Armorer(10000, 10, Material.Swords, this);
         king = new King();
         queen = new Queen();
-        farmer = new Farmer(10, 10, Material.Meat, miner, this);
+        farmer = new Farmer(1500, 10, Material.Meat, miner, this);
         resetValues();
     }
     
@@ -103,5 +131,9 @@ public class Kingdom {
         jewelry = 0;
         knights = 0;
         morale = 0;
+    }
+    
+    public void startSimulation() {
+        farmer.start();
     }
 }
