@@ -16,5 +16,7 @@ public enum Material {
     Grain,
     Meat,
     Swords,
-    Jewelry
+    Jewelry,
+    Knights,
+    Morale
 }

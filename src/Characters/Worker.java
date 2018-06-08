@@ -61,6 +61,12 @@ public abstract class Worker extends Thread{
             case Swords:
                 kingdom.setSwords(kingdom.getSwords() + amountOfMaterial);
                 break;
+            case Knights:
+                kingdom.setKnights(kingdom.getKnights()+ amountOfMaterial);
+                break;
+            case Morale:
+                kingdom.setMorale(kingdom.getMorale() + amountOfMaterial);
+                break;
         }
     }
     

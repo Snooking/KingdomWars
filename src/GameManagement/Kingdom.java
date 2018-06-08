@@ -19,6 +19,32 @@ public class Kingdom extends Thread {
     private Armorer armorer;
     private King king;
     private Queen queen;
+
+    public Farmer getFarmer() {
+        return farmer;
+    }
+
+    public Miner getMiner() {
+        return miner;
+    }
+
+    public Jeweller getJeweller() {
+        return jeweller;
+    }
+
+    public Armorer getArmorer() {
+        return armorer;
+    }
+
+    public King getKing() {
+        return king;
+    }
+
+    public Queen getQueen() {
+        return queen;
+    }
+    
+    private Simulator simulator;
     
     private int coal;
     private int ore;
@@ -85,6 +111,10 @@ public class Kingdom extends Thread {
         return grain;
     }
 
+    public void setKnights(int knights) {
+        this.knights = knights;
+    }
+
     public int getSwords() {
         return swords;
     }
@@ -109,16 +139,18 @@ public class Kingdom extends Thread {
         king = _king;
         queen = _queen;
         resetValues();
+        simulator = new Simulator(this);
     }
     
     public Kingdom() {        
         jeweller = new Jeweller(10000, 10, Material.Jewelry, this);
         armorer = new Armorer(10000, 10, Material.Swords, this);
-        king = new King(10000, 1, Material.Coal, this);
-        queen = new Queen(10000, 1, Material.Coal, this);
+        king = new King(10000, 1, Material.Knights, this);
+        queen = new Queen(10000, 1, Material.Morale, this);
         miner = new Miner(2500, 10, Material.Coal, this);
         farmer = new Farmer(1500, 10, Material.Meat, this);
         resetValues();
+        simulator = new Simulator(this);
     }
     
     private void resetValues() {
@@ -141,37 +173,16 @@ public class Kingdom extends Thread {
         notifyWorker(farmer);        
     }
     
-    private void notifyWorker(Worker workerToNotify) {
+    public void notifyWorker(Worker workerToNotify) {
         synchronized (workerToNotify) {
             workerToNotify.notify();
             workerToNotify.setIsNotified(true);
         }
     }
     
-    private void simulate() {
-        if (meat>5&&!miner.getIsNotified()) {
-            notifyWorker(miner);
-            meat -= 5;
-        }
-        if (grain > 10 && coal > 10 && ore > 10 && !armorer.getIsNotified()){
-            notifyWorker(armorer);
-            grain-=10;
-            coal-=10;
-            ore-=10;
-        }
-        if(grain > 5 && gold > 5 && coal > 5) {
-            notifyWorker(jeweller);
-            grain-=5;
-            coal-=5;
-            gold-=5;
-        }
-    }
-    
     @Override
     public void run() {
         startSimulation();
-        while(true) {
-            simulate();
-        }
+        simulator.simulate();
     }
 }

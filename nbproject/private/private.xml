@@ -5,7 +5,9 @@
         <group>
             <file>file:/E:/NetBeansProjects/KingdomWars/src/Characters/Farmer.java</file>
             <file>file:/E:/NetBeansProjects/KingdomWars/src/kingdomwars/MainWindow.fxml</file>
+            <file>file:/E:/NetBeansProjects/KingdomWars/src/GameManagement/Kingdom.java</file>
             <file>file:/E:/NetBeansProjects/KingdomWars/src/kingdomwars/MainWindowController.java</file>
+            <file>file:/E:/NetBeansProjects/KingdomWars/src/GameManagement/Simulator.java</file>
             <file>file:/E:/NetBeansProjects/KingdomWars/src/Characters/Worker.java</file>
         </group>
     </open-files>
