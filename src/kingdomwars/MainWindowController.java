@@ -44,21 +44,43 @@ public class MainWindowController implements Initializable {
     private @FXML Label firstKingdomKnightsValue;
     private @FXML Label firstKingdomMoraleValue;
     
+    private @FXML Label firstKingdomEvents;
+    
+    private Kingdom secondKingdom;
+    
+    private @FXML Label secondKingdomCoalValue;
+    private @FXML Label secondKingdomGoldValue;
+    private @FXML Label secondKingdomOreValue;
+    
+    private @FXML Label secondKingdomGrainValue;
+    private @FXML Label secondKingdomMeatValue;
+    
+    private @FXML Label secondKingdomSwordsValue;
+    private @FXML Label secondKingdomJewelryValue;
+    
+    private @FXML Label secondKingdomKnightsValue;
+    private @FXML Label secondKingdomMoraleValue;
+    
+    private @FXML Label secondKingdomEvents;
+    
     private Timeline refresher;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        firstKingdom = new Kingdom();
-        
+        firstKingdom = new Kingdom();        
+        secondKingdom = new Kingdom();
+
         refresher = new Timeline(new KeyFrame(Duration.seconds(0.5), new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {
                 prepareFirstKingdomUI();
+                prepareSecondKingdomUI();
             }
         }));
         refresher.setCycleCount(Timeline.INDEFINITE);
         firstKingdom.start();
+        secondKingdom.start();
         refresher.play();
         
     }    
@@ -76,5 +98,24 @@ public class MainWindowController implements Initializable {
 
                 firstKingdomKnightsValue.setText(Integer.toString(firstKingdom.getKnights()));
                 firstKingdomMoraleValue.setText(Integer.toString(firstKingdom.getMorale()));
+                
+                firstKingdomEvents.setText(firstKingdom.getEvents());
+    }
+    
+    private void prepareSecondKingdomUI() {
+                secondKingdomGrainValue.setText(Integer.toString(secondKingdom.getGrain()));
+                secondKingdomMeatValue.setText(Integer.toString(secondKingdom.getMeat()));
+                
+                secondKingdomCoalValue.setText(Integer.toString(secondKingdom.getCoal()));
+                secondKingdomGoldValue.setText(Integer.toString(secondKingdom.getGold()));
+                secondKingdomOreValue.setText(Integer.toString(secondKingdom.getOre()));
+
+                secondKingdomSwordsValue.setText(Integer.toString(secondKingdom.getSwords()));
+                secondKingdomJewelryValue.setText(Integer.toString(secondKingdom.getJewelry()));
+
+                secondKingdomKnightsValue.setText(Integer.toString(secondKingdom.getKnights()));
+                secondKingdomMoraleValue.setText(Integer.toString(secondKingdom.getMorale()));
+                
+                secondKingdomEvents.setText(secondKingdom.getEvents());
     }
 }

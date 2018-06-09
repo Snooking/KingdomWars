@@ -70,6 +70,16 @@ public abstract class Worker extends Thread{
         }
     }
     
+    public String tellWhatStarted() {
+        String started = this.getClass().getSimpleName();
+        started += " started collecting ";
+        started += (material);
+        started += (" in amount ");
+        started += (amountOfMaterial);
+        started += '\n';
+        return started;
+    }
+
         @Override
         public void run() {
         while (true) {
@@ -81,7 +91,6 @@ public abstract class Worker extends Thread{
             }
 
             try {
-
                 Thread.sleep(workingTime);
             } catch (InterruptedException e) {
             }

@@ -58,6 +58,8 @@ public class Kingdom extends Thread {
     
     private int knights;
     private int morale;
+    
+    private String events = "Started simulation\n";
 
     public int getCoal() {
         return coal;
@@ -73,6 +75,10 @@ public class Kingdom extends Thread {
 
     public int getMeat() {
         return meat;
+    }
+    
+    public String getEvents() {
+        return events;
     }
 
     public void setMeat(int meat) {
@@ -131,6 +137,12 @@ public class Kingdom extends Thread {
         return morale;
     }
     
+    public void addToEvents(String eventToAdd) {
+        if(events.length()>500)
+            events = "";
+        events+=eventToAdd;
+    }
+    
     public Kingdom(Farmer _farmer, Miner _miner, Jeweller _jeweller, Armorer _armorer, King _king, Queen _queen) {
         farmer = _farmer;
         miner = _miner;
@@ -170,6 +182,8 @@ public class Kingdom extends Thread {
         miner.start();
         armorer.start();
         jeweller.start();
+        king.start();
+        queen.start();
         notifyWorker(farmer);        
     }
     

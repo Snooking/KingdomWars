@@ -29,6 +29,7 @@ public class Simulator {
         if (kingdom.getMeat()>=5&&!kingdom.getMiner().getIsNotified()) {
             kingdom.notifyWorker(kingdom.getMiner());
             kingdom.setMeat(kingdom.getMeat()-5);
+            kingdom.addToEvents(kingdom.getMiner().tellWhatStarted());
         }
     }
     
@@ -50,6 +51,7 @@ public class Simulator {
             kingdom.setCoal(kingdom.getCoal()-10);
             kingdom.setOre(kingdom.getOre()-10);
             kingdom.setGrain(kingdom.getGrain()-10);
+            kingdom.addToEvents(kingdom.getArmorer().tellWhatStarted());
         }
     }
     
@@ -59,6 +61,7 @@ public class Simulator {
             kingdom.setCoal(kingdom.getCoal()-10);
             kingdom.setGold(kingdom.getGold()-10);
             kingdom.setGrain(kingdom.getGrain()-10);
+            kingdom.addToEvents(kingdom.getJeweller().tellWhatStarted());
         }
     }
     
@@ -67,6 +70,7 @@ public class Simulator {
             kingdom.notifyWorker(kingdom.getKing());
             kingdom.setSwords(kingdom.getSwords()-20);
             kingdom.setMeat(kingdom.getMeat()-50);
+            kingdom.addToEvents(kingdom.getKing().tellWhatStarted());
         }
     }
     
@@ -75,6 +79,7 @@ public class Simulator {
             kingdom.notifyWorker(kingdom.getQueen());
             kingdom.setJewelry(kingdom.getJewelry()-10);
             kingdom.setMeat(kingdom.getMeat()-5);
+            kingdom.addToEvents(kingdom.getQueen().tellWhatStarted());
         }
     }
     
