@@ -32,6 +32,10 @@ public class MainWindowController implements Initializable {
     
     private Kingdom firstKingdom;
     
+    public void setKingdom(Kingdom kingdom) {
+        this.firstKingdom = kingdom;
+    }
+    
     private @FXML Label firstKingdomCoalValue;
     private @FXML Label firstKingdomGoldValue;
     private @FXML Label firstKingdomOreValue;
@@ -84,9 +88,11 @@ public class MainWindowController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        firstKingdom = new Kingdom();        
+        //firstKingdom = new Kingdom();        
         secondKingdom = new Kingdom();
-
+    }    
+    
+    public void startSimulation() {
         refresher = new Timeline(new KeyFrame(Duration.seconds(0.1), new EventHandler<ActionEvent>() {
 
             @Override
@@ -100,8 +106,7 @@ public class MainWindowController implements Initializable {
         firstKingdom.start();
         secondKingdom.start();
         refresher.play();
-        
-    }    
+    }
     
     private void prepareFirstKingdomUI() {
                 firstKingdomGrainValue.setText(Integer.toString(firstKingdom.getGrain()));

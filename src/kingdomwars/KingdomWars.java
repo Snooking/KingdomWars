@@ -5,6 +5,8 @@
  */
 package kingdomwars;
 
+import GameManagement.Kingdom;
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,15 +19,37 @@ import javafx.stage.Stage;
  */
 public class KingdomWars extends Application {
     
+    private static Stage primaryStage;
+    
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));     
+        this.primaryStage = primaryStage;
+        showFirstKingdomWindow();
+    }
+
+    private static void showFirstKingdomWindow() throws IOException {
+        FXMLLoader loaderStats = new FXMLLoader();
+        loaderStats.setLocation(KingdomWars.class.getResource("StatsWindow.fxml"));
+        Parent rootStats = loaderStats.load();
+        primaryStage.setTitle("First kingdom stats");
+        primaryStage.setScene(new Scene(rootStats, 200, 800));
+        primaryStage.show();
+    }
+    
+    public static void showMainWindow(Kingdom kingdom) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(KingdomWars.class.getResource("MainWindow.fxml"));
         Parent root = loader.load();
+
+        MainWindowController controller = loader.getController();
+        controller.setKingdom(kingdom);
+        controller.startSimulation();
+        
         primaryStage.setTitle("Kingdom Wars");
         primaryStage.setScene(new Scene(root, 1000, 800));
         primaryStage.show();
     }
-
+    
     /**
      * @param args the command line arguments
      */

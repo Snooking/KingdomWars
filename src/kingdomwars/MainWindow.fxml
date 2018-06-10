@@ -112,6 +112,8 @@
 
                 <ProgressBar fx:id="firstKingdomKingProgress" prefWidth="300.0"/>
 
+                <Label/>
+                
                 <BorderPane>
                     <left>
                         <Label fx:id="firstKingdomMoraleLabel" text="Morale: "/>

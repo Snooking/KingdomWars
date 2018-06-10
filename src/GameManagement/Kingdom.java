@@ -43,6 +43,32 @@ public class Kingdom extends Thread {
     public Queen getQueen() {
         return queen;
     }
+
+    public void setFarmer(Farmer farmer) {
+        this.farmer = farmer;
+    }
+
+    public void setMiner(Miner miner) {
+        this.miner = miner;
+    }
+
+    public void setJeweller(Jeweller jeweller) {
+        this.jeweller = jeweller;
+    }
+
+    public void setArmorer(Armorer armorer) {
+        this.armorer = armorer;
+    }
+
+    public void setKing(King king) {
+        this.king = king;
+    }
+
+    public void setQueen(Queen queen) {
+        this.queen = queen;
+    }
+    
+    
     
     private Simulator simulator;
     

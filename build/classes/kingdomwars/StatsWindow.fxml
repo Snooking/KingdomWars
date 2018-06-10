@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="200.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kingdomwars.StatsWindowController">
+    <VBox prefWidth="200.0">
+        <Label text="Farmer - time"/>
+        <TextField fx:id="FarmerTime" text="1"/>
+        <Label text="Farmer - amount"/>
+        <TextField fx:id="FarmerAmount" text="10"/>
+        <Label text="Miner - time"/>
+        <TextField fx:id="MinerTime" text="2"/>
+        <Label text="Miner - amount"/>
+        <TextField fx:id="MinerAmount" text="10"/>
+        <Label text="Armorer - time"/>
+        <TextField fx:id="ArmorerTime" text="10"/>
+        <Label text="Armorer - amount"/>
+        <TextField fx:id="ArmorerAmount" text="10"/>
+        <Label text="Jeweller - time"/>
+        <TextField fx:id="JewellerTime" text="10"/>
+        <Label text="Jeweller - amount"/>
+        <TextField fx:id="JewellerAmount" text="10"/>
+        <Label text="King - time"/>
+        <TextField fx:id="KingTime" text="10"/>
+        <Label text="King - amount"/>
+        <TextField fx:id="KingAmount" text="1"/>
+        <Label text="Queen - time"/>
+        <TextField fx:id="QueenTime" text="10"/>
+        <Label text="Queen - amount"/>
+        <TextField fx:id="QueenAmount" text="1"/>
+        
+        <Button fx:id="Start" text="Start"/>
+    </VBox>
+</AnchorPane>
