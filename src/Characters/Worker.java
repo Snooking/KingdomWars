@@ -25,6 +25,7 @@ public abstract class Worker extends Thread{
         material = _material;
         kingdom = _kingdom;
         isNotified = false;
+        startTime = 0;
     }
     
     public void changeMaterial(Material _material) {
@@ -40,7 +41,10 @@ public abstract class Worker extends Thread{
     }
     
     public double getProgress(){
-        return ((double)System.nanoTime() - (double)startTime)/((double)workingTime*1000000.0);
+        double value = ((double)System.nanoTime() - (double)startTime)/((double)workingTime*1000000.0);
+        if (value<=1)
+            return value;
+        return 0;
     }
     
     protected void collectMaterial() {
