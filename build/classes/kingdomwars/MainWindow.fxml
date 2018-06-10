@@ -7,239 +7,253 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kingdomwars.MainWindowController">
-    <BorderPane prefWidth="*">
+    <BorderPane prefWidth="800.0">
         
         <left>
-            <BorderPane prefWidth="300.0">
-        
-                <top>           
-                    <Label fx:id="firstKingdomStats" text="First Kingdom"/>
-                </top>
+            <Label fx:id="firstKingdomStats" text="First Kingdom"/>
 
-                <left>
-                    <VBox>
-                        <Label></Label>
-                        <BorderPane>
-                            <left>
-                                <Label fx:id="firstKingdomCoalLabel" text="Coal: "/>
-                            </left>
-                            
-                            <right>
-                                <Label fx:id="firstKingdomCoalValue"/>
-                            </right>
-                        </BorderPane>
-                        
-                        <BorderPane>
-                            <left>
-                                <Label fx:id="firstKingdomGoldLabel" text="Gold: "/>
-                            </left>
-                            
-                            <right>
-                                <Label fx:id="firstKingdomGoldValue"/>
-                            </right>
-                        </BorderPane>
-                        
-                        <BorderPane>
-                            <left>
-                                <Label fx:id="firstKingdomOreLabel" text="Ore: "/>
-                            </left>
-                            
-                            <right>
-                                <Label fx:id="firstKingdomOreValue"/>
-                            </right>
-                        </BorderPane>
-                        
-                        <Label></Label>
-                        
-                        <BorderPane>
-                            <left>
-                                <Label fx:id="firstKingdomGrainLabel" text="Grain: "/>
-                            </left>
-                            
-                            <right>
-                                <Label fx:id="firstKingdomGrainValue"/>
-                            </right>
-                        </BorderPane>
-                        
-                        <BorderPane>
-                            <left>
-                                <Label fx:id="firstKingdomMeatLabel" text="Meat: "/>
-                            </left>
-                            
-                            <right>
-                                <Label fx:id="firstKingdomMeatValue"/>
-                            </right>
-                        </BorderPane>
-                        
-                        <Label></Label>
-                        
-                        <BorderPane>
-                            <left>
-                                <Label fx:id="firstKingdomSwordsLabel" text="Swords: "/>
-                            </left>
-                            
-                            <right>
-                                <Label fx:id="firstKingdomSwordsValue"/>
-                            </right>
-                        </BorderPane>
-                        
-                        <BorderPane>
-                            <left>
-                                <Label fx:id="firstKingdomJewelryLabel" text="Jewelry: "/>
-                            </left>
-                            
-                            <right>
-                                <Label fx:id="firstKingdomJewelryValue"/>
-                            </right>
-                        </BorderPane>
-                        
-                        <Label></Label>
-                        
-                        <BorderPane>
-                            <left>
-                                <Label fx:id="firstKingdomKnightsLabel" text="Knights: "/>
-                            </left>
-                            
-                            <right>
-                                <Label fx:id="firstKingdomKnightsValue"/>
-                            </right>
-                        </BorderPane>
-                        
-                        <BorderPane>
-                            <left>
-                                <Label fx:id="firstKingdomMoraleLabel" text="Morale: "/>
-                            </left>
-                            
-                            <right>
-                                <Label fx:id="firstKingdomMoraleValue"/>
-                            </right>
-                        </BorderPane>
-                        
-                        <Label></Label>
-                        <Label></Label>
+            <VBox>
+                <Label></Label>
+                <BorderPane prefWidth="300.0">
+                    <left>
+                        <Label fx:id="firstKingdomCoalLabel" text="Coal: "/>
+                    </left>
 
-                        <Label fx:id="firstKingdomEvents"/>
-                        
-                    </VBox>
-                </left>
+                    <right>
+                        <Label fx:id="firstKingdomCoalValue"/>
+                    </right>
+                </BorderPane>
 
-            </BorderPane>
+                <BorderPane>
+                    <left>
+                        <Label fx:id="firstKingdomGoldLabel" text="Gold: "/>
+                    </left>
+
+                    <right>
+                        <Label fx:id="firstKingdomGoldValue"/>
+                    </right>
+                </BorderPane>
+
+                <BorderPane>
+                    <left>
+                        <Label fx:id="firstKingdomOreLabel" text="Ore: "/>
+                    </left>
+
+                    <right>
+                        <Label fx:id="firstKingdomOreValue"/>
+                    </right>
+                </BorderPane>
+
+                <ProgressBar fx:id="firstKingdomMinerProgress" prefWidth="300.0"/>
+
+                <Label></Label>
+
+                <BorderPane>
+                    <left>
+                        <Label fx:id="firstKingdomGrainLabel" text="Grain: "/>
+                    </left>
+
+                    <right>
+                        <Label fx:id="firstKingdomGrainValue"/>
+                    </right>
+                </BorderPane>
+
+                <BorderPane>
+                    <left>
+                        <Label fx:id="firstKingdomMeatLabel" text="Meat: "/>
+                    </left>
+
+                    <right>
+                        <Label fx:id="firstKingdomMeatValue"/>
+                    </right>
+                </BorderPane>
+
+                <ProgressBar fx:id="firstKingdomFarmerProgress" prefWidth="300.0"/>
+
+                <Label></Label>
+
+                <BorderPane>
+                    <left>
+                        <Label fx:id="firstKingdomSwordsLabel" text="Swords: "/>
+                    </left>
+
+                    <right>
+                        <Label fx:id="firstKingdomSwordsValue"/>
+                    </right>
+                </BorderPane>
+
+                <ProgressBar fx:id="firstKingdomArmorerProgress" prefWidth="300.0"/>
+                
+                <Label></Label>
+
+                <BorderPane>
+                    <left>
+                        <Label fx:id="firstKingdomJewelryLabel" text="Jewelry: "/>
+                    </left>
+
+                    <right>
+                        <Label fx:id="firstKingdomJewelryValue"/>
+                    </right>
+                </BorderPane>
+
+                <ProgressBar fx:id="firstKingdomJewellerProgress" prefWidth="300.0"/>
+
+                <Label></Label>
+
+                <BorderPane>
+                    <left>
+                        <Label fx:id="firstKingdomKnightsLabel" text="Knights: "/>
+                    </left>
+
+                    <right>
+                        <Label fx:id="firstKingdomKnightsValue"/>
+                    </right>
+                </BorderPane>
+
+                <ProgressBar fx:id="firstKingdomKingProgress" prefWidth="300.0"/>
+
+                <BorderPane>
+                    <left>
+                        <Label fx:id="firstKingdomMoraleLabel" text="Morale: "/>
+                    </left>
+
+                    <right>
+                        <Label fx:id="firstKingdomMoraleValue"/>
+                    </right>
+                </BorderPane>
+
+                <ProgressBar fx:id="firstKingdomQueenProgress" prefWidth="300.0"/>
+
+                <Label></Label>
+                <Label></Label>
+
+                <Label fx:id="firstKingdomEvents"/>
+
+            </VBox>
         </left>
         <right>
-            <BorderPane prefWidth="300.0">
-        
-                <top>           
-                    <Label fx:id="secondKingdomStats" text="Second Kingdom"/>
-                </top>
+            <Label fx:id="secondKingdomStats" text="Second Kingdom"/>
 
-                <left>
-                    <VBox>
-                        <Label></Label>
-                        <BorderPane>
-                            <left>
-                                <Label fx:id="secondKingdomCoalLabel" text="Coal: "/>
-                            </left>
-                            
-                            <right>
-                                <Label fx:id="secondKingdomCoalValue"/>
-                            </right>
-                        </BorderPane>
-                        
-                        <BorderPane>
-                            <left>
-                                <Label fx:id="secondKingdomGoldLabel" text="Gold: "/>
-                            </left>
-                            
-                            <right>
-                                <Label fx:id="secondKingdomGoldValue"/>
-                            </right>
-                        </BorderPane>
-                        
-                        <BorderPane>
-                            <left>
-                                <Label fx:id="secondKingdomOreLabel" text="Ore: "/>
-                            </left>
-                            
-                            <right>
-                                <Label fx:id="secondKingdomOreValue"/>
-                            </right>
-                        </BorderPane>
-                        
-                        <Label></Label>
-                        
-                        <BorderPane>
-                            <left>
-                                <Label fx:id="secondKingdomGrainLabel" text="Grain: "/>
-                            </left>
-                            
-                            <right>
-                                <Label fx:id="secondKingdomGrainValue"/>
-                            </right>
-                        </BorderPane>
-                        
-                        <BorderPane>
-                            <left>
-                                <Label fx:id="secondKingdomMeatLabel" text="Meat: "/>
-                            </left>
-                            
-                            <right>
-                                <Label fx:id="secondKingdomMeatValue"/>
-                            </right>
-                        </BorderPane>
-                        
-                        <Label></Label>
-                        
-                        <BorderPane>
-                            <left>
-                                <Label fx:id="secondKingdomSwordsLabel" text="Swords: "/>
-                            </left>
-                            
-                            <right>
-                                <Label fx:id="secondKingdomSwordsValue"/>
-                            </right>
-                        </BorderPane>
-                        
-                        <BorderPane>
-                            <left>
-                                <Label fx:id="secondKingdomJewelryLabel" text="Jewelry: "/>
-                            </left>
-                            
-                            <right>
-                                <Label fx:id="secondKingdomJewelryValue"/>
-                            </right>
-                        </BorderPane>
-                        
-                        <Label></Label>
-                        
-                        <BorderPane>
-                            <left>
-                                <Label fx:id="secondKingdomKnightsLabel" text="Knights: "/>
-                            </left>
-                            
-                            <right>
-                                <Label fx:id="secondKingdomKnightsValue"/>
-                            </right>
-                        </BorderPane>
-                        
-                        <BorderPane>
-                            <left>
-                                <Label fx:id="secondKingdomMoraleLabel" text="Morale: "/>
-                            </left>
-                            
-                            <right>
-                                <Label fx:id="secondKingdomMoraleValue"/>
-                            </right>
-                        </BorderPane>
-                        
-                        <Label></Label>
-                        <Label></Label>
-                        
-                        <Label fx:id="secondKingdomEvents"/>
-                        
-                    </VBox>
-                </left>
+            <VBox>
+                <Label></Label>
+                <BorderPane prefWidth="300.0">
+                    <left>
+                        <Label fx:id="secondKingdomCoalLabel" text="Coal: "/>
+                    </left>
 
-            </BorderPane>
+                    <right>
+                        <Label fx:id="secondKingdomCoalValue"/>
+                    </right>
+                </BorderPane>
+
+                <BorderPane>
+                    <left>
+                        <Label fx:id="secondKingdomGoldLabel" text="Gold: "/>
+                    </left>
+
+                    <right>
+                        <Label fx:id="secondKingdomGoldValue"/>
+                    </right>
+                </BorderPane>
+
+                <BorderPane>
+                    <left>
+                        <Label fx:id="secondKingdomOreLabel" text="Ore: "/>
+                    </left>
+
+                    <right>
+                        <Label fx:id="secondKingdomOreValue"/>
+                    </right>
+                </BorderPane>
+
+                <ProgressBar fx:id="secondKingdomMinerProgress" prefWidth="300.0"/>
+
+                <Label></Label>
+
+                <BorderPane>
+                    <left>
+                        <Label fx:id="secondKingdomGrainLabel" text="Grain: "/>
+                    </left>
+
+                    <right>
+                        <Label fx:id="secondKingdomGrainValue"/>
+                    </right>
+                </BorderPane>
+
+                <BorderPane>
+                    <left>
+                        <Label fx:id="secondKingdomMeatLabel" text="Meat: "/>
+                    </left>
+
+                    <right>
+                        <Label fx:id="secondKingdomMeatValue"/>
+                    </right>
+                </BorderPane>
+
+                <ProgressBar fx:id="secondKingdomFarmerProgress" prefWidth="300.0"/>
+
+                <Label></Label>
+
+                <BorderPane>
+                    <left>
+                        <Label fx:id="secondKingdomSwordsLabel" text="Swords: "/>
+                    </left>
+
+                    <right>
+                        <Label fx:id="secondKingdomSwordsValue"/>
+                    </right>
+                </BorderPane>
+
+                <ProgressBar fx:id="secondKingdomArmorerProgress" prefWidth="300.0"/>
+
+                <Label></Label>
+                
+                <BorderPane>
+                    <left>
+                        <Label fx:id="secondKingdomJewelryLabel" text="Jewelry: "/>
+                    </left>
+
+                    <right>
+                        <Label fx:id="secondKingdomJewelryValue"/>
+                    </right>
+                </BorderPane>
+
+                <ProgressBar fx:id="secondKingdomJewellerProgress" prefWidth="300.0"/>
+
+                <Label></Label>
+
+                <BorderPane>
+                    <left>
+                        <Label fx:id="secondKingdomKnightsLabel" text="Knights: "/>
+                    </left>
+
+                    <right>
+                        <Label fx:id="secondKingdomKnightsValue"/>
+                    </right>
+                </BorderPane>
+
+                <ProgressBar fx:id="secondKingdomKingProgress" prefWidth="300.0"/>
+
+                <Label></Label>
+                
+                <BorderPane>
+                    <left>
+                        <Label fx:id="secondKingdomMoraleLabel" text="Morale: "/>
+                    </left>
+
+                    <right>
+                        <Label fx:id="secondKingdomMoraleValue"/>
+                    </right>
+                </BorderPane>
+
+                <ProgressBar fx:id="secondKingdomQueenProgress" prefWidth="300.0"/>
+
+                <Label></Label>
+                <Label></Label>
+
+                <Label fx:id="secondKingdomEvents"/>
+
+            </VBox>
         </right>
 
     </BorderPane>

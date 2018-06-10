@@ -17,6 +17,7 @@ public abstract class Worker extends Thread{
     protected Material material;
     protected Kingdom kingdom;
     protected boolean isNotified;
+    protected long startTime;
     
     protected Worker(int time, int amount, Material _material, Kingdom _kingdom) {
         workingTime = time;
@@ -36,6 +37,10 @@ public abstract class Worker extends Thread{
     
     public Boolean getIsNotified() {
         return isNotified;
+    }
+    
+    public double getProgress(){
+        return ((double)System.nanoTime() - (double)startTime)/((double)workingTime*1000000.0);
     }
     
     protected void collectMaterial() {
@@ -91,6 +96,7 @@ public abstract class Worker extends Thread{
             }
 
             try {
+                startTime = System.nanoTime();
                 Thread.sleep(workingTime);
             } catch (InterruptedException e) {
             }

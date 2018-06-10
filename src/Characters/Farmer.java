@@ -21,6 +21,7 @@ public class Farmer extends Worker {
     public void run() {
         while (true) {
             try {
+                startTime = System.nanoTime();
                 Thread.sleep(workingTime);
             } catch (InterruptedException e) {
             }

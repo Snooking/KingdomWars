@@ -16,6 +16,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.util.Duration;
 
 /**
@@ -34,16 +35,24 @@ public class MainWindowController implements Initializable {
     private @FXML Label firstKingdomCoalValue;
     private @FXML Label firstKingdomGoldValue;
     private @FXML Label firstKingdomOreValue;
+    private @FXML ProgressBar firstKingdomMinerProgress;
     
     private @FXML Label firstKingdomGrainValue;
     private @FXML Label firstKingdomMeatValue;
     
+    private @FXML ProgressBar firstKingdomFarmerProgress;
+    
     private @FXML Label firstKingdomSwordsValue;
+    private @FXML ProgressBar firstKingdomArmorerProgress;
+    
     private @FXML Label firstKingdomJewelryValue;
+    private @FXML ProgressBar firstKingdomJewellerProgress;
     
     private @FXML Label firstKingdomKnightsValue;
-    private @FXML Label firstKingdomMoraleValue;
+    private @FXML ProgressBar firstKingdomKingProgress;
     
+    private @FXML Label firstKingdomMoraleValue;
+    private @FXML ProgressBar firstKingdomQueenProgress;
     private @FXML Label firstKingdomEvents;
     
     private Kingdom secondKingdom;
@@ -51,15 +60,23 @@ public class MainWindowController implements Initializable {
     private @FXML Label secondKingdomCoalValue;
     private @FXML Label secondKingdomGoldValue;
     private @FXML Label secondKingdomOreValue;
+    private @FXML ProgressBar secondKingdomMinerProgress;
     
     private @FXML Label secondKingdomGrainValue;
     private @FXML Label secondKingdomMeatValue;
+    private @FXML ProgressBar secondKingdomFarmerProgress;
     
     private @FXML Label secondKingdomSwordsValue;
+    private @FXML ProgressBar secondKingdomArmorerProgress;
+    
     private @FXML Label secondKingdomJewelryValue;
+    private @FXML ProgressBar secondKingdomJewellerProgress;
     
     private @FXML Label secondKingdomKnightsValue;
+    private @FXML ProgressBar secondKingdomKingProgress;
+    
     private @FXML Label secondKingdomMoraleValue;
+    private @FXML ProgressBar secondKingdomQueenProgress;
     
     private @FXML Label secondKingdomEvents;
     
@@ -70,12 +87,13 @@ public class MainWindowController implements Initializable {
         firstKingdom = new Kingdom();        
         secondKingdom = new Kingdom();
 
-        refresher = new Timeline(new KeyFrame(Duration.seconds(0.5), new EventHandler<ActionEvent>() {
+        refresher = new Timeline(new KeyFrame(Duration.seconds(0.1), new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {
                 prepareFirstKingdomUI();
                 prepareSecondKingdomUI();
+                
             }
         }));
         refresher.setCycleCount(Timeline.INDEFINITE);
@@ -99,6 +117,13 @@ public class MainWindowController implements Initializable {
                 firstKingdomKnightsValue.setText(Integer.toString(firstKingdom.getKnights()));
                 firstKingdomMoraleValue.setText(Integer.toString(firstKingdom.getMorale()));
                 
+                firstKingdomMinerProgress.setProgress(firstKingdom.getMiner().getProgress());
+                firstKingdomFarmerProgress.setProgress(firstKingdom.getFarmer().getProgress());
+                firstKingdomArmorerProgress.setProgress(firstKingdom.getArmorer().getProgress());
+                firstKingdomJewellerProgress.setProgress(firstKingdom.getJeweller().getProgress());
+                firstKingdomKingProgress.setProgress(firstKingdom.getKing().getProgress());
+                firstKingdomQueenProgress.setProgress(firstKingdom.getQueen().getProgress());
+                
                 firstKingdomEvents.setText(firstKingdom.getEvents());
     }
     
@@ -115,6 +140,13 @@ public class MainWindowController implements Initializable {
 
                 secondKingdomKnightsValue.setText(Integer.toString(secondKingdom.getKnights()));
                 secondKingdomMoraleValue.setText(Integer.toString(secondKingdom.getMorale()));
+                
+                secondKingdomMinerProgress.setProgress(secondKingdom.getMiner().getProgress());
+                secondKingdomFarmerProgress.setProgress(secondKingdom.getFarmer().getProgress());
+                secondKingdomArmorerProgress.setProgress(secondKingdom.getArmorer().getProgress());
+                secondKingdomJewellerProgress.setProgress(secondKingdom.getJeweller().getProgress());
+                secondKingdomKingProgress.setProgress(secondKingdom.getKing().getProgress());
+                secondKingdomQueenProgress.setProgress(secondKingdom.getQueen().getProgress());
                 
                 secondKingdomEvents.setText(secondKingdom.getEvents());
     }
